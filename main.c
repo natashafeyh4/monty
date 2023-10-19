@@ -1,15 +1,40 @@
-#include "monty.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_LINE_LENGTH 1024
 
 /**
- * main - The main function for the Monty bytecode interpreter
- * @argc: The number of command-line arguments
- * @argv: An array of command-line argument strings
- * Return: EXIT_SUCCESS on success, EXIT_FAILURE on failure
+ * main - entry
+ * @argc: argument count
+ * @argv: argument value
+ * Return: 0 (success)
  */
+
 int main(int argc, char *argv[])
 {
-    /* Parse command-line arguments and read the Monty bytecode file */
-    /* Execute the Monty bytecodes line by line */
+	FILE *file;
+	char content[MAX_LINE_LENGTH];
 
-    return (EXIT_SUCCESS); /* You may need to add error handling and return EXIT_FAILURE */
+	if (argc != 2)
+	{
+		printf("Usage: %s filename\n", argv[0]);
+		return (1);
+	}
+
+
+	file = fopen(argv[1], "r");
+	if (!file)
+	{
+		perror("Error opening file");
+		return (1);
+	}
+
+	while (fgets(content, MAX_LINE_LENGTH, file))
+	{
+		printf("%s", content);
+	}
+
+	fclose(file);
+
+	return (0);
 }
