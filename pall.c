@@ -1,9 +1,11 @@
 #include "monty.h"
 
-void push(stack_t **stack, unsigned int line_number)
+/**
+ * pall - Prints all the values on the stack, starting from the top of the stack
+ * @stack: A pointer to the top of the stack
+ * @line_number: The current line number in the Monty bytecode file
+ */
+void pall(stack_t **stack, unsigned int line_number)
 {
-    /* Your implementation for push opcode here */
-    (void)stack; /* To avoid "unused parameter" warnings */
-    (void)line_number;
-    /* Add your logic here */
+    /* Your implementation for pall opcode here */
 }
